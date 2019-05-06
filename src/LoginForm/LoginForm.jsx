@@ -15,11 +15,14 @@ class LoginForm extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
+        document.querySelector('#login-form').childNodes.forEach((node)=>{
+            node.value = "";
+        })
         this.props.handleLogin(this.state);
     }
     render(){
         return <div>
-            <form onSubmit = {this.handleSubmit}>
+            <form id="login-form" onSubmit = {this.handleSubmit}>
                 username: <input onChange = {this.handleChange} type="text" name="username"/>
                 password: <input onChange = {this.handleChange} type="password" name="password"/>
                 <input type="submit"/>
