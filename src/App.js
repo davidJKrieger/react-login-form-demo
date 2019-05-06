@@ -14,7 +14,7 @@ class App extends Component{
   handleLogin = (formData) => {
     this.setState({
       loggedIn: true,
-      username: formData
+      username: formData.username
     })
   }
   render(){
@@ -23,7 +23,7 @@ class App extends Component{
         <h1>Welcome to secret sharer</h1>
         {
           this.state.loggedIn === true ?
-          <SecretsIndex></SecretsIndex>
+          <SecretsIndex username={this.state.username}></SecretsIndex>
           :
           <LoginForm handleLogin = {this.handleLogin} ></LoginForm>
         }
