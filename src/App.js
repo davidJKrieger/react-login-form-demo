@@ -11,15 +11,26 @@ class App extends Component{
       username: null
     }
   }
+  handleLogin = (formData) => {
+    this.setState({
+      loggedIn: true,
+      username: formData
+    })
+  }
   render(){
     return (
       <div className="App">
         <h1>Welcome to secret sharer</h1>
-        <LoginForm></LoginForm>
-        <SecretsIndex></SecretsIndex>
+        {
+          this.state.loggedIn === true ?
+          <SecretsIndex></SecretsIndex>
+          :
+          <LoginForm handleLogin = {this.handleLogin} ></LoginForm>
+        }
       </div>
     );
   }
 }
 
 export default App;
+

@@ -6,7 +6,7 @@ class SecretsIndex extends Component {
     }
     render(){
         return <div>
-            <h1>Hi i'm the secrets index</h1>
+            <h1>Welcome to your secrets, _______</h1>
         </div>
     }
 }

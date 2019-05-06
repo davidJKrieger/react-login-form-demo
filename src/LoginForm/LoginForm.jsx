@@ -13,9 +13,13 @@ class LoginForm extends Component {
             [e.target.name] : e.target.value
         })
     }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.handleLogin(this.state);
+    }
     render(){
         return <div>
-            <form>
+            <form onSubmit = {this.handleSubmit}>
                 username: <input onChange = {this.handleChange} type="text" name="username"/>
                 password: <input onChange = {this.handleChange} type="password" name="password"/>
                 <input type="submit"/>
